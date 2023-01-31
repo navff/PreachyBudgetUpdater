@@ -1,0 +1,36 @@
+name: Deploy.To.Yandex
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks
+    # that will be executed as part of the job
+    steps:
+        # Checks-out your repository under $GITHUB_WORKSPACE,
+        # so your job can access it
+        - uses: actions/checkout@v3
+        
+        - name: Deploy Function
+          id: sls-func
+          uses: yc-actions/yc-sls-function@v2.1.0
+          with:
+            yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+            folder-id: 'b1gslim9pjl5jan2tbod'
+            function-name: 'update-amo-secrets'
+            runtime: 'dotnetcore31'
+            memory: '128Mb'
+            entrypoint: 'AmoKeyUpdateFunc/AmoKeyUpdateFunc.FunctionHandler'
+            environment: |
+              DEBUG=True
+              FOO=bar
+            include: |
+              .
