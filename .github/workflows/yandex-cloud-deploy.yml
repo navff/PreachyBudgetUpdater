@@ -28,7 +28,7 @@ jobs:
             function-name: 'update-amo-secrets'
             runtime: 'dotnetcore31'
             memory: '128Mb'
-            entrypoint: 'AmoKeyUpdateFunc.FunctionHandler'
+            entrypoint: 'AmoKeyUpdateFunc.AmoKeyUpdateFunc'
             environment: |
               DEBUG=True
               FOO=bar
