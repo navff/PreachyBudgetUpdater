@@ -17,6 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\AmoKeyUpdateFunc\AmoKeyUpdateFunc.csproj" />
       <ProjectReference Include="..\AmoToSheetFunc\AmoToSheetFunc.csproj" />
       <ProjectReference Include="..\UpdaterFunction\UpdaterFunction.csproj" />
     </ItemGroup>
