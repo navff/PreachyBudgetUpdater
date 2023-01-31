@@ -6,13 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\YaCloudCommon\YaCloudCommon.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="AspNetCore.Yandex.ObjectStorage" Version="0.2.2" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-      <PackageReference Include="System.Net.Http.Json" Version="7.0.0" />
     </ItemGroup>
 
 </Project>

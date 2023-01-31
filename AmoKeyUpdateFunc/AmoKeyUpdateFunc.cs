@@ -2,12 +2,10 @@
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Net.Http.Json;
 using System.Text;
 using AspNetCore.Yandex.ObjectStorage;
 using AspNetCore.Yandex.ObjectStorage.Configuration;
 using Newtonsoft.Json;
-using YaCloudCommon;
 
 namespace AmoKeyUpdateFunc
 {
@@ -43,12 +41,6 @@ namespace AmoKeyUpdateFunc
 
         public YaCloudFunctionResponseBase FunctionHandler(string? request = null)
         {
-            // if (request == null) return new YaCloudFunctionErrorResponse
-            // {
-            //     ErrorMessage = "empty request",
-            //     ErrorType = "RequestError"
-            // };
-
             var oldAmoSecrets = GetAmoKeyFileFromYaObjectStorage();
             var newAmoSecrets = GetNewAmoSecretsFromAmo(new AmoSecretsRequest
             {
