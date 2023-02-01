@@ -2,9 +2,9 @@ name: Deploy.To.Yandex
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master_BAK" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master_BAK" ]
 
 jobs:
 
