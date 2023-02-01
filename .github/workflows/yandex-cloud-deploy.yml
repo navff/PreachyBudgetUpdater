@@ -19,8 +19,24 @@ jobs:
         # so your job can access it
         - uses: actions/checkout@v3
         
-        - name: Deploy Function
-          id: sls-func
+        - name: Deploy Function preachy-amo-to-sheet
+          id: sls-func-preachy-amo-to-sheet
+          uses: yc-actions/yc-sls-function@v2.5.0
+          with:
+            yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+            folder-id: 'b1gslim9pjl5jan2tbod'
+            function-name: 'preachy-amo-to-sheet'
+            runtime: 'dotnetcore31'
+            memory: '128Mb'
+            entrypoint: 'AmoKeyUpdateFunc.AmoKeyUpdateFunc'
+            environment: |
+              YA_OBJECT_STORAGE_SECRET_KEY=${{ secrets.YA_OBJECT_STORAGE_SECRET_KEY }}
+              AMO_CLIENT_SECRET=${{ secrets.AMO_CLIENT_SECRET }}
+            source-root: ./AmoKeyUpdateFunc
+            include: "."
+            
+        - name: Deploy Function update-amo-secrets
+          id: sls-func-update-amo-secrets
           uses: yc-actions/yc-sls-function@v2.5.0
           with:
             yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
