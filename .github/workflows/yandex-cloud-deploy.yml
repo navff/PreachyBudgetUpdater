@@ -28,11 +28,11 @@ jobs:
             function-name: 'preachy-amo-to-sheet'
             runtime: 'dotnetcore31'
             memory: '128Mb'
-            entrypoint: 'AmoKeyUpdateFunc.AmoKeyUpdateFunc'
+            entrypoint: 'AmoToSheetFunc.AmoToSheetFunction'
             environment: |
               YA_OBJECT_STORAGE_SECRET_KEY=${{ secrets.YA_OBJECT_STORAGE_SECRET_KEY }}
               AMO_CLIENT_SECRET=${{ secrets.AMO_CLIENT_SECRET }}
-            source-root: ./AmoKeyUpdateFunc
+            source-root: ./AmoToSheetFunc
             include: "."
             
         - name: Deploy Function update-amo-secrets
