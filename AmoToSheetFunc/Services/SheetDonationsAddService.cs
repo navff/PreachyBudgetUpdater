@@ -40,7 +40,7 @@ namespace AmoToSheetFunc
                     donation.AmoLeadId, 
                     donation.ContactName, 
                     donation.Amount ?? "", 
-                    donation.Date.ToString("dd.MM.yyyy hh:mm:ss")
+                    donation.Date.ToString("dd.MM.yyyy HH:mm:ss")
                 } }
             };
             var googleSheetValues = _googleSheetsHelper.Service.Spreadsheets.Values;

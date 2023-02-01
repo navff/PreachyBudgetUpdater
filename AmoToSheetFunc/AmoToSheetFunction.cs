@@ -52,7 +52,7 @@ namespace AmoToSheetFunc
             {
                 AmoLeadId = lead.Id,
                 Amount = amount,
-                Date = DateTime.Now,
+                Date = DateTime.Now.AddHours(3),
                 ContactName = contact.Name
             });
 
